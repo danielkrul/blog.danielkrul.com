@@ -1,0 +1,156 @@
+{**
+ * @param string   $basePath web base path
+*}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>{ifset #title}{include title|striptags} | {/ifset}Daniel Krůl - Osobní portfolio</title>
+
+	<link rel="stylesheet" href="{$basePath}/design/fonts/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{$basePath}/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$basePath}/bootstrap/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="{$basePath}/css/main.css">
+
+	<script src="{$basePath}/js/jquery.js"></script>
+	<script src="{$basePath}/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	{block head}{/block}
+</head>
+
+<body>
+	<script> document.documentElement.className+=' js' </script>
+	<div class="container-fluid">
+		<header id="topPanel" class="row row-content-center">
+			<div class="col-sm-4">
+				<a href="{$basePath}">
+					<img width="270" src="{$basePath}/design/images/logo_danielkrul.png">
+				</a>
+			</div>
+
+			<div class="col-sm-8 right">
+				<nav class="menu pull-right">
+					{foreach Array("Úvod"=>"default", "O mně"=>"oMne", "Portfolio"=>"portfolio", "Kontakt"=>"kontakt") as $name=>$href}
+  						<a n:class="$presenter->isLinkCurrent($href) ? active" n:href="{$href}">{$name}</a>
+					{/foreach}
+				</nav> 
+			</div>
+		</header>
+
+		<div id="centerPanel" class="row">
+			<div class="left col-sm-8">
+				{include content}
+			</div>
+
+			<div class="right col-sm-4">
+				<div class="right">
+					<div class="box">
+						<div class="title">
+							<h2>Autor</h2>
+						</div>
+
+						<div class="face">
+						</div>
+
+						<div class="desc">
+							<p>Jmenuji se (jak jste jistě uhádli) Daniel Krůl. Jsem programátor, webdesignér a příležitostný pisálek. Zde naleznete všechny mé dosavadní práce a názory.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="bottomPanel" class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6">
+					<table cellspacing="15">
+						<tr>
+							<td><i class="fa fa-phone" aria-hidden="true"></i></td>
+							<td class="info">+420 734 132 585</td>
+						</tr>
+						<tr>
+							<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+							<td class="info">info@danielkrul.com</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="col-sm-6">
+					<a href="#" title="Facebok"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a href="#" title="GitHub danielkrul"><i class="fa fa-github" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</footer>
+
+	{* <header id="head">
+		<div class="left">
+			<a href="{$basePath}">
+				<img src="{$basePath}/design/images/logo_danielkrul.png" alt="Logo">
+			</a>
+		</div>
+
+		<div class="right">
+			<div class="menu">
+				{foreach Array("Úvod"=>"default", "O mně"=>"oMne", "Služby"=>"sluzby", "Portfolio"=>"portfolio", "Kontakt"=>"kontakt") as $name=>$href}
+  					<a n:class="$presenter->isLinkCurrent($href) ? active" n:href="{$href}">{$name}</a>
+				{/foreach}
+			</div>
+		</div>
+	</header>
+
+	<div id="content">
+		<div class="left">
+			{include content}
+		</div>
+
+		<div class="right">
+			<div class="box">
+				<div class="title">
+					<h2>Autor</h2>
+				</div>
+
+				<div class="face">
+				</div>
+
+				<div class="desc">
+					<p>Jmenuji se (jak jste jistě uhádli) Daniel Krůl. Jsem programátor, webdesignér a příležitostný pisálek. Zde naleznete všechny mé dosavadní práce a názory.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="footer">
+		<div class="row">
+			<div class="left">
+				<table cellspacing="15">
+					<tr>
+						<td><i class="fa fa-phone" aria-hidden="true"></i></td>
+						<td class="info">+420 734 132 585</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+						<td class="info">info@danielkrul.com</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="right">
+				<a href="#" title="Facebok"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="#" title="GitHub danielkrul"><i class="fa fa-github" aria-hidden="true"></i></a>
+			</div>
+		</div>
+
+		<div class="bottom">
+			&copy; 2017 Daniel Krůl - <a target="_blank" n:href=":Admin:Admin:">Administrace</a>
+		</div>
+	</div>
+
+	{block scripts}
+	{/block} *}
+</body>
+</html>
