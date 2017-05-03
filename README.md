@@ -1,1 +1,1 @@
-# danielkrul.com
+# blog.danielkrul.com
